@@ -42,15 +42,19 @@
                             <form action="/search" method="GET">
                                 {{!-- Название --}}
                                 <div class="mb-3">
-                                    <input name="title" type="text" value="{{array.title}}" class="form-control" placeholder="Что ищете?">
+                                    <input name="title" type="text" value="{{search.title}}" class="form-control" placeholder="Что ищете?">
                                 </div>
 
                                 {{!-- Категория --}}
                                 <select name="category" class="form-select">
                                     <option value="">Без категории</option>
+                                    {{!-- {{#each category}}
+                                    <option value="{{category}}" {{#if}}{{selected}}{{/if}}>{{category}}</option> --}}
                                     <option value="Одежда">Одежда</option>
                                     <option value="Для дома">Для дома</option>
                                     <option value="Техника">Техника</option>
+                                    {{!-- {{/each}} --}}
+                                    
                                 </select>
 
                                 {{!-- Сортировка по цене --}}

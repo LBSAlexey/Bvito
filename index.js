@@ -83,18 +83,19 @@ app.get(`/search`, async function (req, res) {
         sorting.price = sort;
     }
 
-    let options = ``;
-    let categories = ["Техника", "Для дома", "Одежда"];
+    let options = [];
+    let categories = ["Одежда", "Для дома", "Техника"];
     for(let i = 0; i < categories.length; i++) {
-        let categoryChoose = categories[i];
+        let category = categories[i];
         let selected = '';
-        if (category == categoryChoose) {
+        if (category == search.category) {
             selected = 'selected';
         } 
-    options += 
-    `
-        <option value="${category}" ${selected}>${category}</option>
-    `;
+        options[i] += 
+        `
+            <option value="${category}" ${selected}>${category}</option>
+        `;
+  
     }
 
     // Свершаем поиск!
@@ -105,6 +106,9 @@ app.get(`/search`, async function (req, res) {
     res.render('index', {
         array: data,
         options: options,
+        search: search,
+        category: categories,
+        selected: selected,
     });   
 });
 
