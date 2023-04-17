@@ -186,7 +186,7 @@ app.post(`/create`, async function (req, res) {
         await product.save();
         res.redirect(`/my?success=1`);
     } catch(err) {
-        res.redirect(`/my?ierror=1`);
+        res.redirect(`/my?error=1`);
     }
 });
 
